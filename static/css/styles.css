@@ -1,0 +1,76 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato", sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+#myNavbar {
+
+    color: white;
+}
+
+
+/* Create a Parallax Effect */
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* First image (Logo. Full height) */
+
+.bgimg-1 {
+    background-image: url('http://i.huffpost.com/gen/1122872/images/o-CHEAP-TRAVEL-DESTINATIONS-facebook.jpg');
+    min-height: 100%;
+}
+
+
+/* Second image (Portfolio) */
+
+.bgimg-2 {
+    background-image: url("http://images.huffingtonpost.com/2016-04-13-1460583980-9496388-19abbb49f1f50bd1b746a2233f68c06e.jpg");
+    min-height: 400px;
+}
+
+
+/* Third image (Contact) */
+
+.bgimg-3 {
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/05/e7/36/05e73646a587d28e8c03586017fec2ab.jpg");
+    min-height: 400px;
+}
+
+.w3-wide {
+    letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+    cursor: pointer;
+}
+
+
+/* Turn off parallax scrolling for tablets and phones */
+
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1,
+    .bgimg-2,
+    .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
