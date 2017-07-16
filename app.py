@@ -148,39 +148,6 @@ def list_of_invitees():
 def send_invitee_email():
 
 
-	sender = 'monkeysupremacy@gmail.com'
-	receivers = ['monkeysupremacy@gmail.com']
-
-	to = sender
-	gmail_user = sender
-	smtpserver = smtplib.SMTP("smtp.gmail.com",587)
-	smtpserver.ehlo()
-	smtpserver.starttls()
-	smtpserver.ehlo
-	smtpserver.login(gmail_user, gmail_pwd)
-	header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:testing \n'
-	print header
-	msg = header + '\n this is test msg from mkyong.com \n\n'
-	smtpserver.sendmail(gmail_user, to, msg)
-	print 'done!'
-	smtpserver.close()
-
-	msg = Message("Hello",
-				  sender="monkeysupremacy@gmail.com", # from
-				  recipients=["monkeysupremacy@gmail.com"]) # to
-	msg.body = "testing"
-	mail.send(msg)
-
 	return flask.render_template('thanks_invitee.html')
-
-	invitee_name = flask.request.form['inviteename']
-	invitee_email = flask.request.form['inviteeemail']
-
-	if inviteename and inviteeemail is None:
-		error = "Fields can't be blank"
-		return flask.render_template('list_of_invitees.html', error=error)
-
-
-	return flask.render_template('thanks_invitee.html', invitee_name=invitee_name, invitee_email=invitee_email)
 
 
