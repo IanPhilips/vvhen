@@ -1,13 +1,40 @@
 
 {% extends 'base.html' %}
 {% block content %}
+<!--p>for coding use: Accessible here: planner_name, planner_email</p-->
+<p>The planner inputs their calendar information here:</p>
 
-<p>for coding use: Accessible here: planner_name, planner_email</p>
+<!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+
+<script>
+$('input[name="daterange"]').daterangepicker(
+{
+    locale: {
+      format: 'YYYY-MM-DD'
+    },
+    startDate: '2017-7-16',
+    endDate: '2017-8-15'
+}, 
+function(start, end, label) {
+    alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+});
+</script>
 <br>
-<p>Input Planner calender info here></p>
 <br>
-<P>Other requirements for planner here</P>
+<P>Other planner details go here (i.e. location preferences, date / time preferences, country / city preferences):</P>
+<input type="text">
 <br>
-<a href="/list-of-invitees"><p>continue onto inviting people</p></a>
+<p>Start inviting vacation attendies:</p>
+
+<a href="/list-of-invitees"><button type="button">Next</button></a>
 
 {% endblock %}
