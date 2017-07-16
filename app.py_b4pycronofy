@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jul 15 12:38:38 2017
+
+@author: iansp
+"""
+import datetime
+import uuid
+import pycronofy
+import os
+from flask import Flask,redirect, abort, request 
+app = Flask(__name__)
+
+calendarIDs = []
+
+global cronofy
+example_datetime_string = '2016-01-06T16:49:37Z' #ISO 8601.
+
+# To set to local time, pass in the tzid argument.
+from_date = (datetime.datetime.utcnow() - datetime.timedelta(days=2))
+to_date = datetime.datetime.utcnow()
+cronofy = pycronofy.Client(client_id="BQYkMYzj2xSA8iZUnumgng0-NthBcRZy", client_secret="7ckUqdSRcFHaaWx2LoIWrN_7SyQzcBErRqfV2VJ33T673TOYWu8VUF_WdhPyuHwcFa3Tecqv8ADYyhpeKrtuYQ")
+
+@app.route("/")
+def hello():
+   site = "https://app.cronofy.com/oauth/authorize?response_type=code&client_id=BQYkMYzj2xSA8iZUnumgng0-NthBcRZy&redirect_uri=http://palebone.myddns.me/calendar&scope=read_events&state=true"
+   return redirect(site, code=302)
+
+@app.route("/calendar", methods=['GET'])
+def calendar():
+    code = request.args.get('code', None)
+    global cronofy
+    auth = cronofy.get_authorization_from_code(code)
+    cronofy = pycronofy.Client(client_id="BQYkMYzj2xSA8iZUnumgng0-NthBcRZy", client_secret="7ckUqdSRcFHaaWx2LoIWrN_7SyQzcBErRqfV2VJ33T673TOYWu8VUF_WdhPyuHwcFa3Tecqv8ADYyhpeKrtuYQ", 
+    access_token=auth['access_token'],
+    refresh_token=auth['refresh_token'],
+    token_expiration=auth['token_expiration'])
+    cronofy.list_calendars()
+#    calendarIDs.append(calendarID)
+    print(calendarID)
+    findFreeBlocks()
+    return "you did it!"
+    
+
+def findFreeBlocks():
+  cronofy.is_authorization_expired()
+# Refresh
+# Refresh requires the client id and client secret be set.
+  auth = cronofy.refresh_authorization()
+  print(auth)
+  free_busy_blocks = cronofy.read_free_busy(calendar_ids=(calendarIDs[0],),
+  from_date=from_date,
+  to_date=to_date
+  )
+  print("contacting cronofy for free blocks")
+  for block in free_busy_blocks:
+    print("block is:")
+    print(block)
+
+    
