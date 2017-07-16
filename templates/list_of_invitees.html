@@ -6,14 +6,49 @@
 	        <p id="error">{{error}}</p>
 	{% endif %}
 
-<p>Table containing everyone's desires></p>
+<p>Table containing everyone's desires:</p>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<table>
+  <tr>
+    <th>Invitee Name</th>
+    <th>Status</th>
+    <th>Desires</th>
+  </tr>
+  <tr>
+    <td>Joshua Mitchell</td>
+    <td>Sent Information</td>
+    <td>Prefers summer.</td>
+  </tr>
+  <tr>
+    <td>John Smith</td>
+    <td>No Response Yet</td>
+    <td>n/a</td>
+  </tr>
+</table>
+
 <br>
-<P>Master Calendar of all schedules</P>
+<P>Master Calendar of all schedules:</P>
+<img src="static/images/calendar.jpg">
 <br>
-<p>Table containing list of people invited and status (haven't filled out, or if they have filled it out, then show the info. Probably merge this table with the first table above (desires table)</p>
-<br>
-<p>Option to add more invitees.</p>
-<br>
+<p>Add more invitees:</p>
 <form action="/send-invitee-email" id="planner_form" method="post">
         <br>
         Name:
@@ -31,7 +66,8 @@
         <br>
     </form>
 
-<br>
-<p>List of links to various HomeAway pages with ranges by dates based on above info.</p>
+<p>List of links to various HomeAway pages with ranges by dates based on above info:</p>
+
+<a href="http://www.google.com"><p>Listings.</p></a>
 
 {% endblock %}
