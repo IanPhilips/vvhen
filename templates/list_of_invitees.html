@@ -13,6 +13,25 @@
 <p>Table containing list of people invited and status (haven't filled out, or if they have filled it out, then show the info. Probably merge this table with the first table above (desires table)</p>
 <br>
 <p>Option to add more invitees.</p>
+<br>
+<form action="/send-invitee-email" id="planner_form" method="post">
+        <br>
+        Name:
+        <br>
+        <input type="text" name="inviteename" id="inviteename">
+        <br>
+        <br>
+        Email:
+        <br>
+        <input type="email" name="inviteeemail" id="inviteeemail">
+        <br>
+        <br>
+        <button type="submit" id="plannerformsubmitbutton">Submit</button>
+        <br>
+        <br>
+    </form>
 
+<br>
+<p>List of links to various HomeAway pages with ranges by dates based on above info.</p>
 
 {% endblock %}
