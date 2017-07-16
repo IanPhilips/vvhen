@@ -118,7 +118,7 @@ def findFreeBlocks():
 @app.route("/CombinedCalendar")
 def CombinedCalendar():  
 #return calendar.html 
-  return "check out this nice new calendar"
+  return flask.render_template('invitee_calendar.html')
 
 @app.route("/")
 def hello():
