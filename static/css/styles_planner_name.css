@@ -1,0 +1,21 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato", sans-serif;
+	background-color:gray;    
+   
+}
+
+
+@media only screen and (max-device-width: 1024px) {
+	
+    .bgimg-1,
+    .bgimg-2,
+    .bgimg-3 {
+        background-attachment: scroll; 
+    }
+}
